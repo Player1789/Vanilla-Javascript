@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo list</title>
+    <link rel="stylesheet" href="index.css" />
+    <script
+      src="https://kit.fontawesome.com/f25b83add9.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header class="header">
+      <h1 class="header__title">Peter's To Do list</h1>
+      <div class="header__new-todo">
+        <input
+          type="text"
+          placeholder="What you want to do?"
+          class="header__input"
+        />
+        <i class="fas fa-plus header__icon"></i>
+      </div>
+    </header>
+    <ul class="todo__list list">
+      <li class="list__container">
+        <input type="checkbox" class="list__check-box" />
+        <span class="list__content">
+          책 읽기
+        </span>
+      </li>
+      <li class="list__container">
+        <input type="checkbox" class="list__check-box" />
+        <span class="list__content">
+          영화 보기
+        </span>
+      </li>
+      <li class="list__container">
+        <input type="checkbox" class="list__check-box" />
+        <span class="list__content">
+          음악 듣기
+        </span>
+      </li>
+    </ul>
+    <ul class="todo__list-done list done">
+      <li class="list__container">
+        <input type="checkbox" class="list__check-box" />
+        <span class="list__content">
+          음악 듣기
+        </span>
+      </li>
+    </ul>
+    <script src="index.js"></script>
+  </body>
+</html>
