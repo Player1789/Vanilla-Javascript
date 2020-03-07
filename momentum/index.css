@@ -1,8 +1,8 @@
 .js-form,
 .js-greetings {
-  display: none;
+	display: none;
 }
 
 .showing {
-  display: block;
+	display: block;
 }
