@@ -23,6 +23,24 @@
 
 .toDo__form input::placeholder {
 	color: white;
-	font-size: 20px;
+	font-size: 26px;
 	font-weight: 500;
+}
+
+.toDo__list li {
+	color: white;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: rgba(10, 10, 10, 0.4);
+	margin: 5px;
+	padding: 10px;
+	font-size: 20px;
+	border-radius: 10px;
+}
+
+button {
+	border: none;
+	background: none;
+	cursor: pointer;
 }

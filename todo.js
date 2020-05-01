@@ -31,8 +31,8 @@ function addToDo(value) {
 	delBtn.innerText = '❌';
 	delBtn.addEventListener('click', deleteTodo);
 	span.innerText = value;
-	li.appendChild(delBtn);
 	li.appendChild(span);
+	li.appendChild(delBtn);
 	toDoList.appendChild(li);
 	toDoInput.value = '';
 	const toDoObj = {

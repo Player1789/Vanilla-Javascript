@@ -102,6 +102,19 @@ section {
 }
 body {
 	line-height: 1;
+	background-color: black;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+body::before {
+	content: " ";
+	position: absolute;
+	background: radial-gradient(circle at bottom right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0) 20%),
+		radial-gradient(circle at top right, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0) 10%),
+		radial-gradient(ellipse at center, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0) 50%);
+	background-blend-mode: overlay;
+	height: 100vh;
+	width: 100vw;
+	z-index: -1;
 }
 ol,
 ul {
@@ -138,6 +151,6 @@ table {
 	height: 100%;
 	left: 0;
 	top: 0;
-	z-index: -1;
+	z-index: -2;
 	object-fit: cover;
 }
