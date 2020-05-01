@@ -1,5 +1,5 @@
 const API_KEY = '973382767420543b990dd71fc9c9ccc0',
-	weather = document.querySelector('.js-weather');
+	weatherSpan = document.querySelector('.weather');
 
 const COORDS_LS = 'coords';
 
@@ -11,46 +11,47 @@ function getWeather(lat, lon) {
 		.then(function(json) {
 			const temp = json.main.temp;
 			const place = json.name;
-			weather.innerText = `${temp} @ ${place}`;
+			weatherSpan.innerText = `${Math.floor(temp)}°C
+            ${place}`;
 		});
 }
 
-function saveCoords(cordObj) {
-	console.log(cordObj);
-	localStorage.setItem(COORDS_LS, JSON.stringify(cordObj));
+function saveCords(coordsObj) {
+	localStorage.setItem(COORDS_LS, JSON.stringify(coordsObj));
 }
 
-function handleGeoSuccess(position) {
-	const latitude = position.coords.latitude;
-	const longitude = position.coords.longitude;
-	const cordObj = {
+function handleSuccess(i) {
+	const latitude = i.coords.latitude;
+	const longitude = i.coords.longitude;
+	const coordsObj = {
 		latitude,
 		longitude
 	};
-	saveCoords(cordObj);
-	getWeather(cordObj.latitude, cordObj.longitude);
+	saveCords(coordsObj);
+	getWeather(latitude, longitude);
 }
 
-function handleGeoError() {
+function handleError() {
 	console.log(`Can't access to geo location`);
 }
 
-function askForCords() {
-	navigator.geolocation.getCurrentPosition(handleGeoSuccess, handleGeoError);
+function askForWeather() {
+	navigator.geolocation.getCurrentPosition(handleSuccess, handleError);
 }
 
-function loadCoords() {
-	const loadedCords = localStorage.getItem(COORDS_LS);
-	if (loadedCords === null) {
-		askForCords();
+function loadWeather() {
+	const loadedCoords = localStorage.getItem(COORDS_LS);
+	if (loadedCoords === null) {
+		askForWeather();
 	} else {
-		const parsedCoords = JSON.parse(loadedCords);
+		const parsedCoords = JSON.parse(loadedCoords);
 		getWeather(parsedCoords.latitude, parsedCoords.longitude);
 	}
 }
 
 function init() {
-	loadCoords();
+	loadWeather();
+	setInterval(loadWeather, 600000);
 }
 
 init();
